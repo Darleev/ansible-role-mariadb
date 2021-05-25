@@ -5,18 +5,12 @@ driver:
   name: podman
 platforms:
   - name: instance
-    # image: "fauust/docker-ansible:${MOLECULE_DISTRO:-debian-10}"
-    image: "geerlingguy/docker-debian10-ansible:latest"
+    image: "fauust/docker-ansible:${MOLECULE_DISTRO:-debian-10}"
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    capabilities:
-      - SYS_ADMIN
-    command: "/lib/systemd/systemd"
     pre_build_image: true
 provisioner:
   name: ansible
-  env:
-    ANSIBLE_FORCE_COLOR: true
   playbooks:
     converge: ${MOLECULE_PLAYBOOK:-converge.yml}
 verifier:
