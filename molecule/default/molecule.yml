@@ -1,14 +1,15 @@
 ---
 driver:
-  name: podman
+  name: ${MOLECULE_DRIVER:-podman}
 platforms:
   - name: instance
     image: "fauust/docker-ansible:${MOLECULE_DISTRO:-debian-sid}"
     systemd: always
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    command: "/lib/systemd/systemd"
+    # command: "/lib/systemd/systemd"
     rootless: ${MOLECULE_ROOTLESS:-true}
+    privileged: ${MOLECULE_PRIVILEGE:-false}
     pre_build_image: true
 provisioner:
   name: ansible

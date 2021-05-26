@@ -34,8 +34,8 @@ jobs:
           #   playbook: converge.yml
 
     steps:
-      - name: Test starting container
-        run: podman --runtime crun run --systemd=always -it fauust/docker-systemd:debian-10
+      # - name: Test starting container
+      #   run: sudo podman --runtime crun run --systemd=always -it fauust/docker-systemd:debian-10
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
       - name: Install requirements
@@ -46,6 +46,23 @@ jobs:
         env:
           PY_COLORS: "1"
           ANSIBLE_FORCE_COLOR: "1"
-          MOLECULE_ROOTLESS: false
+          # MOLECULE_ROOTLESS: false
+          MOLECULE_DRIVER: docker
+          MOLECULE_PRIVILEGE: true
           MOLECULE_DISTRO: ${{ matrix.distro }}
           MOLECULE_PLAYBOOK: ${{ matrix.playbook }}
+
+
+driver:
+  name: ${MOLECULE_DRIVER:-podman}
+platforms:
+  - name: instance
+    image: "fauust/docker-ansible:${MOLECULE_DISTRO:-debian-sid}"
+    systemd: always
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    command: "/lib/systemd/systemd"
+    rootless: ${MOLECULE_ROOTLESS:-true}
+    privileged: ${MOLECULE_PRIVILEGE:-false}
+    pre_build_image: true
+
