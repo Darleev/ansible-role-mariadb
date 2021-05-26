@@ -8,7 +8,7 @@ platforms:
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     command: "/lib/systemd/systemd"
-    privileged: true
+    rootless: ${MOLECULE_ROOTLESS:-true}
     pre_build_image: true
 provisioner:
   name: ansible
