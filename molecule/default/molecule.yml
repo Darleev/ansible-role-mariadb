@@ -5,13 +5,10 @@ platforms:
   - name: instance
     image: "fauust/docker-ansible:${MOLECULE_DISTRO:-debian-sid}"
     systemd: always
-    tmpfs:
-      - /run
-      - /tmp
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-      # - /tmp:/tmp
     command: "/lib/systemd/systemd"
+    privileged: true
     pre_build_image: true
 provisioner:
   name: ansible
