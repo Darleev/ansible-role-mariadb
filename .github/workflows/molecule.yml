@@ -34,8 +34,8 @@ jobs:
           #   playbook: converge.yml
 
     steps:
-      # - name: Test starting container
-      #   run: sudo podman run --systemd=always -it fauust/docker-systemd:debian-10
+      - name: Test starting container
+        run: podman --runtime crun run --systemd=always -it fauust/docker-systemd:debian-10
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
       - name: Install requirements
