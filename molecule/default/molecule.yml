@@ -6,6 +6,7 @@ platforms:
     image: "fauust/docker-ansible:${MOLECULE_DISTRO:-debian-sid}"
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - /tmp:/tmp
     command: "/lib/systemd/systemd"
     pre_build_image: true
 provisioner:
