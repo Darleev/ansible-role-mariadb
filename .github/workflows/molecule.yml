@@ -34,15 +34,13 @@ jobs:
           #   playbook: converge.yml
 
     steps:
-      # using sudo temporarily because podman systemd container won't start on
-      # Github action runners.
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
       - name: Install requirements
-        run: sudo -E pip3 install -r requirements.txt
+        run: pip3 install -r requirements.txt
 
       - name: Run molecule
-        run: sudo -E molecule test
+        run: molecule test
         env:
           PY_COLORS: "1"
           ANSIBLE_FORCE_COLOR: "1"
