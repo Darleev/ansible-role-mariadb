@@ -4,7 +4,7 @@ driver:
 platforms:
   - name: instance
     image: "fauust/docker-ansible:${MOLECULE_DISTRO:-debian-sid}"
-    systemd: true
+    systemd: always
     tmpfs:
       - /run
       - /tmp
