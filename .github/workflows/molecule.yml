@@ -42,7 +42,7 @@ jobs:
         run: pip3 install -r requirements.txt
 
       - name: Run molecule
-        run: molecule --version && molecule create && podman ps
+        run: molecule --version && molecule create && docker ps
         env:
           PY_COLORS: "1"
           ANSIBLE_FORCE_COLOR: "1"
