@@ -41,9 +41,7 @@ jobs:
 
       - name: Run molecule
         run:
-          - molecule --version
-          - molecuyle create
-          - podman ps
+          - molecule --version && molecuyle create && podman ps
         env:
           PY_COLORS: "1"
           ANSIBLE_FORCE_COLOR: "1"
