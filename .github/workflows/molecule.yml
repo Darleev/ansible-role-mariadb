@@ -28,8 +28,8 @@ jobs:
           #   playbook: converge-mdbf.yml
           - distro: debian-10
             playbook: converge.yml
-          - distro: debian-10
-            playbook: converge-mdbf.yml
+          # - distro: debian-10
+          #   playbook: converge-mdbf.yml
           # - distro: debian-sid
           #   playbook: converge.yml
 
@@ -40,7 +40,10 @@ jobs:
         run: pip3 install -r requirements.txt
 
       - name: Run molecule
-        run: molecule --version && molecule test
+        run:
+          - molecule --version
+          - molecuyle create
+          - podman ps
         env:
           PY_COLORS: "1"
           ANSIBLE_FORCE_COLOR: "1"
