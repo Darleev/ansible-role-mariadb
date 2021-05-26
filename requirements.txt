@@ -1,4 +1,4 @@
-ansible==2.10.*
-molecule==3.3.*
-molecule-podman
+ansible==2.9.*
+molecule==3.2.*
+molecule[docker]
 pytest-testinfra

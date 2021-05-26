@@ -1,11 +1,12 @@
 ---
 driver:
-  name: podman
+  name: docker
 platforms:
   - name: instance
     image: "fauust/docker-ansible:${MOLECULE_DISTRO:-debian-sid}"
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privilege: true
     pre_build_image: true
 provisioner:
   name: ansible
