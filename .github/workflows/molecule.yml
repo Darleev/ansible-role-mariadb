@@ -14,28 +14,26 @@ jobs:
     strategy:
       matrix:
         include:
-          # - distro: ubuntu-18.04
-          #   playbook: converge.yml
-          # - distro: ubuntu-18.04
-          #   playbook: converge-mdbf.yml
-          # - distro: ubuntu-20.04
-          #   playbook: converge.yml
-          # - distro: ubuntu-20.04
-          #   playbook: converge-mdbf.yml
-          # - distro: ubuntu-20.10
-          #   playbook: converge.yml
-          # - distro: ubuntu-20.10
-          #   playbook: converge-mdbf.yml
+          - distro: ubuntu-18.04
+            playbook: converge.yml
+          - distro: ubuntu-18.04
+            playbook: converge-mdbf.yml
+          - distro: ubuntu-20.04
+            playbook: converge.yml
+          - distro: ubuntu-20.04
+            playbook: converge-mdbf.yml
+          - distro: ubuntu-20.10
+            playbook: converge.yml
+          - distro: ubuntu-20.10
+            playbook: converge-mdbf.yml
           - distro: debian-10
             playbook: converge.yml
-          # - distro: debian-10
-          #   playbook: converge-mdbf.yml
-          # - distro: debian-sid
-          #   playbook: converge.yml
+          - distro: debian-10
+            playbook: converge-mdbf.yml
+          - distro: debian-sid
+            playbook: converge.yml
 
     steps:
-      # - name: Test starting container
-      #   run: sudo podman --runtime crun run --systemd=always -it fauust/docker-systemd:debian-10
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
       - name: Install requirements
