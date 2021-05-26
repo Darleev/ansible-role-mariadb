@@ -11,8 +11,8 @@ platforms:
 provisioner:
   name: ansible
   config_options:
-  defaults:
-    remote_tmp: /tmp/$USER
+    defaults:
+      remote_tmp: /tmp/$USER
   playbooks:
     converge: ${MOLECULE_PLAYBOOK:-converge.yml}
 verifier:
