@@ -1,15 +1,12 @@
 ---
-dependency:
-  name: galaxy
 driver:
-  name: ${DRIVER_NAME:-podman}
+  name: podman
 platforms:
   - name: instance
-    image: "fauust/docker-ansible:${MOLECULE_DISTRO:-debian-10}"
+    image: "fauust/docker-ansible:${MOLECULE_DISTRO:-debian-sid}"
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     command: "/lib/systemd/systemd"
-    pre_build_image: false
 provisioner:
   name: ansible
   playbooks:
