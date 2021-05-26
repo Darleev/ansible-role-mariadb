@@ -18,7 +18,7 @@
     mode: 0755
 
 - name: Ensure MariaDB is started and enabled on boot
-  service:
+  systemd:
     name: mariadb
     state: started
     enabled: "{{ mariadb_enabled_on_startup }}"
