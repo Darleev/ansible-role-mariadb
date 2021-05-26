@@ -35,7 +35,7 @@ jobs:
 
     steps:
       - name: Test starting container
-        run: podman run --name sys-test --rm -d --systemd=always fauust/docker-systemd:debian-10 && podman ps
+        run: podman run --systemd=always -it docker.io/geerlingguy/docker-ubuntu2004-ansible
       # - uses: actions/checkout@v2
       # - uses: actions/setup-python@v2
       # - name: Install requirements
