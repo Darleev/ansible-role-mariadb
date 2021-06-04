@@ -36,6 +36,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          path: "${{ github.repository }}"
       - uses: gofrolist/molecule-action@v2
         with:
           molecule_options: --debug
