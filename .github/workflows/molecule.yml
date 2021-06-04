@@ -36,7 +36,7 @@ jobs:
 
     steps:
       - name: configure podman cgroup
-        run: echo 'cgroup_manager="cgroupfs' >.config/containers/containers.conf
+        run: mkdir -p ~/.config/containers && echo 'cgroup_manager="cgroupfs' >~/.config/containers/containers.conf
       - name: start container
         run: podman run --name sys-test -ti --systemd=always fauust/docker-systemd:debian-10
       - name: execute command in container
