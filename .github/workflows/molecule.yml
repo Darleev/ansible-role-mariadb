@@ -37,8 +37,8 @@ jobs:
     steps:
       - name: start container
         run: podman run --name sys-test --rm -d fauust/docker-systemd:debian-10
-      - name: start container
-        run: podman run exec -t sys-test bash -c "ps fax"
+      - name: execute command in container
+        run: podman exec -t sys-test bash -c "ps fax"
 
       # - uses: actions/checkout@v2
       # - name: Install requirements
