@@ -36,7 +36,8 @@ jobs:
 
     steps:
       - name: configure podman cgroup
-        run: mkdir -p ~/.config/containers && echo 'cgroup_manager="systemd"' >~/.config/containers/containers.conf
+        # run: mkdir -p ~/.config/containers && echo 'cgroup_manager="systemd"' >~/.config/containers/containers.conf
+        run: echo 'cgroup_manager="systemd"' >/etc/containers/libpod.conf
       - name: info
         run: podman info
       - name: start container
