@@ -36,7 +36,7 @@ jobs:
 
     steps:
       - name: start container
-        run: podman info && podman run --name sys-test --rm -d --systemd=true fauust/docker-systemd:debian-10 && podman ps
+        run: podman run --name sys-test -ti --systemd=always fauust/docker-systemd:debian-10
       - name: execute command in container
         run: podman exec -t sys-test bash -c "ps fax"
 
