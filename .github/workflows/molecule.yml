@@ -35,10 +35,10 @@ jobs:
           #   playbook: converge.yml
 
     steps:
-      - name: start container
-        run: podman run -t --systemd=always fauust/docker-systemd:debian-10
+      - name: start contai
+        run: podman info | grep cgroup
       - name: execute command in container
-        run: podman exec -t sys-test bash -c "ps fax"
+        run: sudo podman info | grep cgroup
 
       # - uses: actions/checkout@v2
       # - name: Install requirements
