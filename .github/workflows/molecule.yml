@@ -35,14 +35,8 @@ jobs:
           #   playbook: converge.yml
 
     steps:
-      - name: configure podman cgroup
-        run: dpkg -l | grep podman
-      - name: podman info
-        run: podman info
-      - name: sudo podman info
-        run: sudo podman info
       - name: start container
-        run: podman run --name sys-test -ti --systemd=always fauust/docker-systemd:debian-10
+        run: sudo podman run --name sys-test -t --systemd=always fauust/docker-systemd:debian-10
       - name: execute command in container
         run: podman exec -t sys-test bash -c "ps fax"
 
