@@ -35,14 +35,19 @@ jobs:
           #   playbook: converge.yml
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Install requirements
-        run: pip3 install -r requirements.txt
+      - name: start container
+        run: podman run --name sys-test --rm -d fauust/docker-systemd:debian-10
+      - name: start container
+        run: podman run exec -t sys-test bash -c "ps fax"
 
-      - name: Run molecule
-        run: molecule test
-        env:
-          PY_COLORS: "1"
-          ANSIBLE_FORCE_COLOR: "1"
-          MOLECULE_DISTRO: ${{ matrix.distro }}
-          MOLECULE_PLAYBOOK: ${{ matrix.playbook }}
+      # - uses: actions/checkout@v2
+      # - name: Install requirements
+      #   run: pip3 install -r requirements.txt
+
+      # - name: Run molecule
+      #   run: molecule test
+      #   env:
+      #     PY_COLORS: "1"
+      #     ANSIBLE_FORCE_COLOR: "1"
+      #     MOLECULE_DISTRO: ${{ matrix.distro }}
+      #     MOLECULE_PLAYBOOK: ${{ matrix.playbook }}
