@@ -20,4 +20,4 @@ jobs:
 
     steps:
       - name: start container
-        run: podman run --name sys-test -ti --systemd=always fauust/docker-systemd:debian-10
+        run: sudo podman run --name sys-test -ti --systemd=always fauust/docker-systemd:debian-10
