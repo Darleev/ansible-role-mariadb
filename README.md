@@ -1,5 +1,5 @@
 # Ansible role: MariaDB
-
+123
 [![pre-commit](https://github.com/fauust/ansible-role-mariadb/actions/workflows/pre-commit.yml/badge.svg)](https://github.com/fauust/ansible-role-mariadb/actions/workflows/pre-commit.yml)
 [![molecule](https://github.com/fauust/ansible-role-mariadb/actions/workflows/molecule.yml/badge.svg)](https://github.com/fauust/ansible-role-mariadb/actions/workflows/molecule.yml)
 
