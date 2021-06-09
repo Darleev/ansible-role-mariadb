@@ -22,4 +22,5 @@ jobs:
       - name: start container
         run: |
           podman version
+          sudo chmod o+rwx -R /sys/fs/cgroup/systemd/
           podman run --name sys-test -ti --systemd=always fauust/docker-systemd:debian-10
