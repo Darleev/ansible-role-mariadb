@@ -21,5 +21,5 @@ jobs:
     steps:
       - name: start container
         run: |
-        setsebool -P container_manage_cgroup true
-        podman run --name sys-test -ti --systemd=always fauust/docker-systemd:debian-10
+          setsebool -P container_manage_cgroup true
+          podman run --name sys-test -ti --systemd=always fauust/docker-systemd:debian-10
